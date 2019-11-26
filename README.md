@@ -29,10 +29,10 @@ class Widget {
 
 The test at `src/integration-test/databindingformatexample/WidgetControllerIntegrationSpec` demonstrates the issue. Note that the call to `bindData()` does not succesfully bind the custom date string to the `productionDate` property.
 
-##Workaround
+## Workaround
 
 Adding (or uncommenting) the `micronaut-runtime-groovy` dependency in `build.gradle` appears to resolve the issue; the `productionDate` property is bound correctly and the integration test passes.
 
-##Issue with `ControllerUnitTest` Trait
+## Issue with `ControllerUnitTest` Trait
 
 The test at `src/test/databindingformatexample/WidgetControllerSpec` theoretically should demonstrate the issue, however in reality it does not. The databinding apparently works with or without the `micronaut-runtime-groovy` dependency when using the trait. This is not desirable behavior as the running application does not behave the same way as does the unit test, when using this trait.
